@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>絵カードアプリ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="start-screen" class="screen active">
+        <header>
+            <h1>絵カードアプリ</h1>
+            <button id="settings-btn" class="icon-btn">⚙️ 設定</button>
+        </header>
+
+        <div class="content-center">
+            <div class="logo-area">
+                <div class="placeholder-icon">🖼️</div>
+            </div>
+            <button id="start-btn" class="main-btn">スタート</button>
+        </div>
+    </div>
+
+    <div id="quiz-screen" class="screen">
+        <header>
+            <button id="back-to-home" class="icon-btn">🏠</button>
+            <span id="quiz-counter">1 / 10</span>
+            <button id="toggle-label-btn" class="image-btn">
+                <img id="eye-icon" src="images/eye_close.png" alt="表示切替">
+            </button>
+        </header>
+
+        <div class="content-center">
+            <div class="card-area">
+                <img id="quiz-image" src="" alt="問題画像">
+            </div>
+            <p id="quiz-label" class="quiz-label hidden-label">----</p> 
+            
+            <button id="next-btn" class="main-btn">つぎへ ➡</button>
+        </div>
+    </div>
+
+    <div id="end-screen" class="screen">
+        <div class="content-center">
+            <h2 class="end-title">おしまい</h2>
+            <div class="end-icon">🎉</div>
+            <p>よくできました！</p>
+            <button id="home-btn" class="main-btn">ホームに戻る</button>
+        </div>
+        <div id="confetti-container"></div>
+    </div>
+
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>出題カテゴリー設定</h2>
+            <div id="category-list"></div>
+            <button id="close-settings" class="main-btn">閉じる</button>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+/* 全体の設定 */
+body {
+    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f0f7;
+    color: #4a4a4a;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* 画面設定 */
+.screen {
+    display: none;
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    background: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    flex-direction: column;
+    position: relative;
+    overflow: hidden; /* 紙吹雪が外に出ないように */
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* ヘッダー */
+header {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    height: 60px;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 1.2rem;
+    color: #6a4c93;
+    margin: 0;
+}
+
+#quiz-counter {
+    font-weight: bold;
+    color: #999;
+}
+
+/* 中央配置エリア */
+.content-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    z-index: 10; /* 紙吹雪より手前に表示 */
+}
+
+/* ボタン共通 */
+.main-btn {
+    background-color: #9b72cf;
+    color: white;
+    border: none;
+    padding: 15px 60px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: transform 0.1s;
+}
+
+.main-btn:active {
+    transform: scale(0.95);
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #6a4c93;
+    padding: 5px;
+}
+
+/* 画像アイコンボタン */
+.image-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 画像カードエリア */
+.card-area {
+    width: 300px;
+    height: 300px;
+    background: #fff;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 4px solid #e0d4fc; 
+}
+
+.card-area img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+/* 正解ラベル */
+.quiz-label {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+    min-height: 1.2em;
+    transition: opacity 0.3s;
+}
+
+.hidden-label {
+    opacity: 0;
+}
+
+.placeholder-icon {
+    font-size: 8rem;
+    color: #e0d4fc;
+}
+
+/* 設定モーダル */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+#category-list {
+    text-align: left;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.cat-item label {
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5);
+    accent-color: #9b72cf;
+}
+
+/* --- 終了画面と紙吹雪 --- */
+.end-title {
+    font-size: 3rem;
+    color: #6a4c93;
+    margin: 0;
+}
+
+.end-icon {
+    font-size: 5rem;
+    margin: 20px 0;
+}
+
+/* 紙吹雪の基本スタイル */
+.confetti {
+    position: absolute;
+    top: -10px;
+    width: 10px;
+    height: 10px;
+    background-color: #f00;
+    animation: fall linear forwards;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
